@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4687513805528556}
   - component: {fileID: 33670619405099158}
   - component: {fileID: 23821078098626874}
+  - component: {fileID: 65631466390749122}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -408,6 +409,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &65631466390749122
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1727845121604030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.61183, y: 5.355131, z: 14.305135}
+  m_Center: {x: -0.119802, y: 1.3567134, z: 1.8474383}
 --- !u!114 &114717957454073898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -429,7 +442,6 @@ MonoBehaviour:
   sprayDistance: 5
   sprayRadius: 2
   hoseRotationSpeed: 135
-  playerRotationSpeed: 180
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
