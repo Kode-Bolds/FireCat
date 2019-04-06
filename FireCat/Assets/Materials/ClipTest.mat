@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: test2
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: ClipTest
+  m_Shader: {fileID: 4800000, guid: ae4de15a5b3ad304b804e8be44c595d9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,5 +72,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.2756764, g: 0.74343395, b: 0.990566, a: 1}
+    - _CameraPos: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Player1Pos: {r: 0, g: 1000, b: 0, a: 1}
+    - _Player2Pos: {r: 0, g: 1000, b: 0, a: 1}
+    - _Player3Pos: {r: 0, g: 1000, b: 0, a: 1}
+    - _Player4Pos: {r: 0, g: 1000, b: 0, a: 1}

@@ -66,8 +66,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ScreenHeight: 909
-    - _ScreenWidth: 1920
+    - _ScreenHeight: 525
+    - _ScreenWidth: 1138
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
