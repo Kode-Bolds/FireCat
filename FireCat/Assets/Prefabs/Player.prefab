@@ -429,6 +429,7 @@ MonoBehaviour:
   sprayDistance: 5
   sprayRadius: 2
   hoseRotationSpeed: 135
+  playerRotationSpeed: 180
   targetLayer:
     serializedVersion: 2
     m_Bits: 512

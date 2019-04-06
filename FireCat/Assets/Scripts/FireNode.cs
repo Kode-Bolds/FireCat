@@ -7,6 +7,7 @@ public class FireNode : MonoBehaviour
 {
     [Header("Particle Effects")]
     public GameObject FireEffectPrefab;
+    public GameObject SteamEffectPrefab;
     public float fireMaxScale = 1;
     public float fireMinScale = 0;
 
@@ -14,6 +15,7 @@ public class FireNode : MonoBehaviour
     //public string TagForWaterCollider;
     public float TimeToSpread = 5;
     public float TimeToExtiguish = 2;
+    public float WaitTimeReignite = 5;
 
     public bool OnFire
     {
@@ -25,7 +27,10 @@ public class FireNode : MonoBehaviour
     private float _timeExtiguishing = 0;
     private bool _isBeingExtiguished = false;
     private GameObject _myFireObject = null;
+    private GameObject _mySteamObject = null;
     private List<FireNode> _neighbors = new List<FireNode>();
+    private bool _waitExtinguish = false;
+    private float _timeSinceExtinguish = 0;
 
 
     // Use this for initialization
@@ -37,15 +42,23 @@ public class FireNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_onFire)
+        if(_waitExtinguish)
+        {
+            _timeSinceExtinguish += Time.deltaTime;
+            _mySteamObject.transform.localScale = Vector3.Lerp(new Vector3(fireMaxScale, fireMaxScale, fireMaxScale), new Vector3(fireMinScale, fireMinScale, fireMinScale), _timeSinceExtinguish / WaitTimeReignite);
+            if (_timeSinceExtinguish > WaitTimeReignite)
+            {
+                _waitExtinguish = false;
+                _timeSinceExtinguish = 0;
+                Destroy(_mySteamObject);
+            }
+        }
+        else if(_onFire)
         {
             _timeSinceSpread += Time.deltaTime;
             if(_timeSinceSpread > TimeToSpread)
             {
-                foreach(FireNode node in _neighbors)
-                {
-                    node.SetOnFire();
-                }
+                _neighbors[Random.Range(0, _neighbors.Count)].SetOnFire();
                 _timeSinceSpread = 0;
             }
             if(_isBeingExtiguished)
@@ -53,7 +66,6 @@ public class FireNode : MonoBehaviour
                 _timeExtiguishing += Time.deltaTime;
                 if (_timeExtiguishing > TimeToExtiguish)
                 {
-                    print("BOO!");
                     Extinguish();
                 }
             }
@@ -75,39 +87,33 @@ public class FireNode : MonoBehaviour
 
     public void SetOnFire()
     {
-        if(_onFire)
+        if(_onFire || _waitExtinguish)
         {
             return;
         }
         _onFire = true;
         _myFireObject = Instantiate(FireEffectPrefab, transform);
         _timeExtiguishing = TimeToExtiguish - 0.1f;
-
-
+        
         _myFireObject.transform.localScale = new Vector3(fireMaxScale, fireMaxScale, fireMaxScale);
     }
 
     public void Extinguish()
     {
         _onFire = false;
-        //_isBeingExtiguished = false;
+        _isBeingExtiguished = false;
+        _waitExtinguish = true;
         Destroy(_myFireObject);
         _timeExtiguishing = 0;
         _timeSinceSpread = 0;
-    }
+        _mySteamObject = Instantiate(SteamEffectPrefab, transform);
+        _mySteamObject.transform.localScale = new Vector3(fireMaxScale, fireMaxScale, fireMaxScale);
 
-    
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.tag == TagForWaterCollider)
-    //    {
-    //        _isBeingExtiguished = true;
-    //    }
-    //}
+    }
 
     public void OnHit()
     {
-        print("I'm HIT!, Medic!");
+        //print("I'm HIT!, Medic!");
         _isBeingExtiguished = true;
     }
 
