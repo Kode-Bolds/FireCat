@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour {
 
-    public SceneManagerScript s;
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +16,11 @@ public class GameOverController : MonoBehaviour {
 	
         if (Input.GetButtonDown("Select1") || Input.GetButtonDown("Select2") || Input.GetButtonDown("Select3") || Input.GetButtonDown("Select4"))
         {
-            s.LoadScene("SampleScene");
+            SceneManager.LoadScene("SampleScene");
         }
-        else if (Input.GetButtonDown("Cancel1") || Input.GetButtonDown("Cancel2") || Input.GetButtonDown("Cancel3") || Input.GetButtonDown("Cancel4"))
+        else if (Input.GetButtonDown("Cancel"))
         {
-            s.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
