@@ -35,7 +35,7 @@ public class SelectionScript : MonoBehaviour
             continueText.gameObject.SetActive(true);
         }
 
-        if (players.Count > 0 && (Input.GetButton("Start1") || Input.GetButton("Start2") || Input.GetButton("Start3") || Input.GetButton("Start4") || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        if (players.Count > 0 && (Input.GetButtonDown("Start1") || Input.GetButtonDown("Start2") || Input.GetButtonDown("Start3") || Input.GetButtonDown("Start4") || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
             SceneManager.LoadScene("SampleScene");
         }

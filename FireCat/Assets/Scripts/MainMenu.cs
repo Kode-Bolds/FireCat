@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButton("Start1") || Input.GetButton("Start2") || Input.GetButton("Start3") || Input.GetButton("Start4"))
+        if (Input.GetButtonDown("Start1") || Input.GetButtonDown("Start2") || Input.GetButtonDown("Start3") || Input.GetButtonDown("Start4"))
         {
             SceneManager.LoadScene("SampleScene");
         }
