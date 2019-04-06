@@ -1,18 +1,23 @@
 fileFormatVersion: 2
-guid: c2405620ea8935541a13e50156eb9311
+guid: eb8abd57a2b7d0a48a725134651f431d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2100000: defaultMat
-    2100002: Material
-    2100004: None
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: Circle
+    100002: Cube
+    100004: //RootNode
+    400000: Circle
+    400002: Cube
+    400004: //RootNode
+    2100000: Material
+    2300000: Circle
+    2300002: Cube
+    3300000: Circle
+    3300002: Cube
+    4300000: Circle
+    4300002: Cube
+    7400000: Default Take
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -66,7 +71,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -91,7 +96,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
