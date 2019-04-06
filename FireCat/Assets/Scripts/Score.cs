@@ -12,13 +12,14 @@ public class Score : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        listOfPlayerScores = new List<int>(listOfPlayerScoreTexts.Capacity);
-        numberOfPlayers = listOfPlayerScoreTexts.Capacity;
+        numberOfPlayers = listOfPlayerScoreTexts.Count;
+        listOfPlayerScores = new List<int>();
 
         // Initialise the text objects on the screen
         for (int i = 0; i < numberOfPlayers; i++)
         {
-            listOfPlayerScoreTexts[i].text = "0";
+            listOfPlayerScores.Add(0);
+           // listOfPlayerScoreTexts[i].text = listOfPlayerScores[i].ToString();
         }
     }
 
