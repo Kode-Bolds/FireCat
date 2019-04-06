@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4105591798706600}
   - component: {fileID: 114205395471071382}
+  - component: {fileID: 136104106367893166}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -51,10 +52,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355f891535258da458be5efcae051d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireEffectPrefab: {fileID: 1254388894689060, guid: 84a2819a40e7c3b41b355f83db3bbd40,
+  FireEffectPrefab: {fileID: 1167153755413534, guid: bbfaa28511466f34d87c6b4f7c362978,
     type: 2}
   fireMaxScale: 3
   fireMinScale: 0
   TagForWaterCollider: Water
   TimeToSpread: 1
   TimeToExtiguish: 2
+--- !u!136 &136104106367893166
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409443114046836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.33
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.61, z: 0}
