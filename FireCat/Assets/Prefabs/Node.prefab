@@ -54,10 +54,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireEffectPrefab: {fileID: 1167153755413534, guid: bbfaa28511466f34d87c6b4f7c362978,
     type: 2}
+  SteamEffectPrefab: {fileID: 1757407413603630, guid: a32861b0d8e853d44b2566fefd7b2feb,
+    type: 2}
   fireMaxScale: 5
-  fireMinScale: 0
-  TimeToSpread: 5
-  TimeToExtiguish: 1
+  fireMinScale: 0.5
+  TimeToSpread: 3
+  TimeToExtiguish: 0.5
+  WaitTimeReignite: 10
 --- !u!136 &136104106367893166
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -67,7 +70,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3
-  m_Height: 10
+  m_Radius: 1
+  m_Height: 30
   m_Direction: 1
   m_Center: {x: 0, y: 0.61, z: 0}
