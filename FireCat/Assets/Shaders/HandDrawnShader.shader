@@ -75,10 +75,30 @@
 			}
 
 
+			float rand(float x)
+			{
+				return frac(sin(x) * 43758.5453);
+			}
+
 			fixed4 frag (v2f i) : SV_Target
 			{
 				//i.uv.x += noise(_Time.y + i.uv.x * 10) * 0.005;
 				//i.uv.y += noise(_Time.y + i.uv.y * 10) * 0.005;
+				float time = _Time.x * 1.5;
+
+			float2 p = i.uv;
+
+				float xs = (rand(time * 6.6) * 0.1 + 0.9);
+				float ys = (rand(time * 6.6) * 0.1 + 0.9);
+				float hatching = max((clamp((sin(p.x * xs * (170.0 + rand(time) * 30.0) +
+				p.y * ys * (110.0 + rand(time * 1.91) * 30.0)) * 0.5 + 0.5) -
+				(1.0 - 1), 0.0, 1.0)),
+				(clamp((sin(p.x * xs * (-110.0 + rand(time * 4.74) * 30.0) +
+					p.y * ys * (170.0 + rand(time * 3.91) * 30.0)) * 0.5 + 0.5) -
+					(1.0 - 1) - 0.4, 0.0, 1.0)));
+
+
+				//return (hatching * 0.05 + 0.5).rrrr;
 
 				float NOISE = noise((i.uv + float2(frac(_Time.y), 0)) * 100).xxxx;
 
@@ -127,13 +147,18 @@
 					col.rgb = colour.rrr;
 
 				}
+				else
+				{
+				}
 				/*if (col.b < 0.5)
 				{
 					col.b = col.r;
 				}
 				*/
 
-		
+				col = lerp(col, hatching, 0.05);
+
+				
 				// Returns final color using alpha blending
 				return fixed4(col, 1.0);
 			}
