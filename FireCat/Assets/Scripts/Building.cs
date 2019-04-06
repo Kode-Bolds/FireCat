@@ -17,10 +17,13 @@ public class Building : MonoBehaviour
     private List<Building> _neighbors = new List<Building>();
     private float _timeSinceSpread;
 
+    Renderer buildingRenderer;
+    float health = 100;
 
     // Use this for initialization
     void Awake()
     {
+        buildingRenderer = GetComponentInChildren<Renderer>();
         float anglef = (Mathf.PI * 2) / NumberOfNodes;
         for (int i = 0; i < NumberOfNodes; i++)
         {
@@ -80,7 +83,13 @@ public class Building : MonoBehaviour
                 _neighbors[index].AddFire();
                 _timeSinceSpread = 0;
             }
+
+            health -= Time.deltaTime;
+
+            buildingRenderer.material.SetFloat("_BurnTime", 1 - (health / 100f));
         }
+
+        
     }
 
     public void AddNeighbor(Building neighbor)

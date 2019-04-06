@@ -35,12 +35,12 @@ public class SelectionScript : MonoBehaviour
             continueText.gameObject.SetActive(true);
         }
 
-        if (players.Count > 0 && (Input.GetButton("Start1") || Input.GetButton("Start2") || Input.GetButton("Start3") || Input.GetButton("Start4") || Input.GetKeyDown(KeyCode.KeypadEnter)))
+        if (players.Count > 0 && (Input.GetButtonDown("Start1") || Input.GetButtonDown("Start2") || Input.GetButtonDown("Start3") || Input.GetButtonDown("Start4") || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
             SceneManager.LoadScene("SampleScene");
         }
 
-        if (Input.GetButton("Select1") || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetButtonDown("Select1") || Input.GetKeyDown(KeyCode.A))
         {
             // player 1 join
             players.Add("Player 1");
@@ -51,7 +51,7 @@ public class SelectionScript : MonoBehaviour
             // show character above text
             CATS[0].SetActive(true);
         }
-        if (Input.GetButton("Select2") || Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("Select2") || Input.GetKeyDown(KeyCode.S))
         {
             // player 2 join
             players.Add("Player 2");
@@ -61,7 +61,7 @@ public class SelectionScript : MonoBehaviour
 
             CATS[1].SetActive(true);
         }
-        if (Input.GetButton("Select3") || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetButtonDown("Select3") || Input.GetKeyDown(KeyCode.D))
         {
             // player 3 join
             players.Add("Player 3");
@@ -71,7 +71,7 @@ public class SelectionScript : MonoBehaviour
 
             CATS[2].SetActive(true);
         }
-        if (Input.GetButton("Select3") || Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Select4") || Input.GetKeyDown(KeyCode.F))
         {
             // player 4 join
             players.Add("Player 4");
