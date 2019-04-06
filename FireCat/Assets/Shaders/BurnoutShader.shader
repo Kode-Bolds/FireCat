@@ -46,7 +46,7 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) 
 		{
 			// sample the texture
-			IN.uv_MainTex -= float2(0, _Time.x * 0.5);
+			//IN.uv_MainTex -= float2(0, _Time.x * 0.5);
 			fixed4 burnCol = 1 - tex2D(_BurnTex, IN.uv_MainTex);
 
 			// apply fog
@@ -68,5 +68,5 @@
 		}
 		ENDCG
 	}
-	FallBack "Diffuse"
+	FallBack "Legacy Shaders / Transparent / Cutout / VertexLit"
 }
