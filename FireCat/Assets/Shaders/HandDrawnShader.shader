@@ -156,7 +156,7 @@
 				}
 				*/
 
-				col = lerp(col, hatching, 0.05);
+				col = lerp(col, hatching, 0.025);
 
 				
 				// Returns final color using alpha blending
