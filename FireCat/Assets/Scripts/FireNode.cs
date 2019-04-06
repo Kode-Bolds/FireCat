@@ -80,7 +80,9 @@ public class FireNode : MonoBehaviour
         }
         _onFire = true;
         _myFireObject = Instantiate(FireEffectPrefab, transform);
-        
+        _timeExtiguishing = TimeToExtiguish - 0.1f;
+
+
         _myFireObject.transform.localScale = new Vector3(fireMaxScale, fireMaxScale, fireMaxScale);
     }
 
