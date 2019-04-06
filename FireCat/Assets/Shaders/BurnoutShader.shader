@@ -9,9 +9,12 @@
 
 		_MinBurn("Minimum Burn", Float) = 0.25
 		_MaxBurn("Max Burn", Float) = 0.70
+
+		_BurnTime("Burn percentage", Float) = 0.5
+
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType" = "Opaque" }
 		LOD 200
 
 		CGPROGRAM
@@ -31,6 +34,8 @@
 		half _Metallic;
 		fixed4 _Color;
 		float _MinBurn;
+		float _BurnTime;
+
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
 		// #pragma instancing_options assumeuniformscaling
@@ -47,14 +52,14 @@
 			// apply fog
 			UNITY_APPLY_FOG(i.fogCoord, col);
 
-			float burnVal = 1 - (_Time.y * 0.25 % 1);
+			float burnVal = 1 - (_BurnTime * 0.25 % 1);
 			clip(burnVal - burnCol.r);
 
 			burnCol.r = smoothstep(burnVal - _MinBurn, burnVal, burnCol.r);
-
+			burnCol.gba = 1;
 
 			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color * burnCol.r;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color; c = lerp(c, float4(pow(burnCol.r, 5),0,0,0), burnCol.r);
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
