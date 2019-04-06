@@ -11,7 +11,7 @@ public class FireNode : MonoBehaviour
     public float fireMinScale = 0;
 
     [Header("Node Interations")]
-    public string TagForWaterCollider;
+    //public string TagForWaterCollider;
     public float TimeToSpread = 5;
     public float TimeToExtiguish = 2;
 
@@ -51,8 +51,9 @@ public class FireNode : MonoBehaviour
             if(_isBeingExtiguished)
             {
                 _timeExtiguishing += Time.deltaTime;
-                if(_timeExtiguishing > TimeToExtiguish)
+                if (_timeExtiguishing > TimeToExtiguish)
                 {
+                    print("BOO!");
                     Extinguish();
                 }
             }
@@ -89,19 +90,25 @@ public class FireNode : MonoBehaviour
     public void Extinguish()
     {
         _onFire = false;
-        _isBeingExtiguished = false;
+        //_isBeingExtiguished = false;
         Destroy(_myFireObject);
         _timeExtiguishing = 0;
         _timeSinceSpread = 0;
     }
 
     
-    public void OnTriggerEnter(Collider other)
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.tag == TagForWaterCollider)
+    //    {
+    //        _isBeingExtiguished = true;
+    //    }
+    //}
+
+    public void OnHit()
     {
-        if(other.tag == TagForWaterCollider)
-        {
-            _isBeingExtiguished = true;
-        }
+        print("I'm HIT!, Medic!");
+        _isBeingExtiguished = true;
     }
 
     public void AddNeighbor(FireNode neighbor)
