@@ -1,11 +1,10 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
-guid: 106d8b062015aef4e8f6796f7aef9043
+guid: 9992fdc2847d9364897990f43e2e4423
 =======
-guid: e8f6d027173fe994aaf6b25e691231af
+guid: 91b2124dba177114e977dcd878fb6a0a
 >>>>>>> upstream/master
-folderAsset: yes
-DefaultImporter:
+TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
