@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0884f07b4771a68478cb7beb648bfd6f
+guid: b89b8c8256caed2448bfc11537268081
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -21,11 +21,13 @@ ModelImporter:
     2300004: Cube_002
     2300006: Sphere
     2300008: Sphere_001
+    2300010: //RootNode
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
     3300006: Sphere
     3300008: Sphere_001
+    3300010: //RootNode
     4300000: Cube_002
     4300002: Cube_001
     4300004: Cube
