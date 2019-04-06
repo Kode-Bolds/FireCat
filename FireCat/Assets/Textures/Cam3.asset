@@ -5,7 +5,7 @@ CustomRenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Custom Render Texture
+  m_Name: Cam3
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
