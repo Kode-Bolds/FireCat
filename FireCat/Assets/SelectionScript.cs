@@ -71,7 +71,7 @@ public class SelectionScript : MonoBehaviour
 
             CATS[2].SetActive(true);
         }
-        if (Input.GetButton("Select3") || Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButton("Select4") || Input.GetKeyDown(KeyCode.F))
         {
             // player 4 join
             players.Add("Player 4");
