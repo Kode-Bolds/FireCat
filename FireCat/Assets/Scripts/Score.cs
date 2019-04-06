@@ -32,4 +32,9 @@ public class Score : MonoBehaviour
             listOfPlayerScoreTexts[i].text = listOfPlayerScores[i].ToString();
         }
     }
+
+    public void AddToScore(int player, int amount = 1)
+    {
+        listOfPlayerScores[player] += amount;
+    }
 }
