@@ -54,7 +54,9 @@ public class MapSpawn : MonoBehaviour
                 }
             }
         }
-        _buildings[0][0].AddFire();
+        int x = Random.Range(0,X-1);
+        int z = Random.Range(0, Z-1);
+        _buildings[x][z].AddFire();
         GenerateRoadLayout();
     }
 
