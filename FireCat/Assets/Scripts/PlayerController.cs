@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
         xAxis = Input.GetAxisRaw("Horizontal");
         yAxis = Input.GetAxisRaw("Vertical");
 
-        if(xAxis != 0 && yAxis != 0)
+        if(!(xAxis == 0 && yAxis == 0))
         {
         //Move and rotate based on joystick input
         Vector3 movement = new Vector3(xAxis, 0, yAxis) * playerSpeed * Time.deltaTime;
