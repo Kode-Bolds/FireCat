@@ -10,9 +10,16 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     public float playerRotationSpeed;
 
+    [Header("Screen Wrapping")]
+    public float minX;
+    public float maxX;
+    public float minZ;
+    public float maxZ;
+
     [Header("Hose Stats")]
     public float sprayDistance;
     public float sprayRadius;
+    public float hoseRotationSpeed;
     public LayerMask targetLayer;
     public ParticleSystem water;
 
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         Moving();
+        ScreenWrap();
         Aiming();
         Particles();
         SprayRay();
@@ -62,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 lookDir = new Vector3(xAxisAim, 0, -yAxisAim).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(lookDir);
-            topHalf.rotation = Quaternion.RotateTowards(topHalf.rotation, lookRotation, playerRotationSpeed * Time.deltaTime);
+            topHalf.rotation = Quaternion.RotateTowards(topHalf.rotation, lookRotation, hoseRotationSpeed * Time.deltaTime);
         }
     }
 
@@ -126,6 +134,32 @@ public class PlayerController : MonoBehaviour
                 print("hit Node");
                 hit.collider.gameObject.GetComponent<FireNode>().OnHit();
             }
+        }
+    }
+
+    /// <summary>
+    /// Wraps player around the screen if they go outside the bounds of the screen
+    /// </summary>
+    void ScreenWrap()
+    {
+        if(transform.position.x > maxX)
+        {
+            transform.position = new Vector3(minX + 1, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x < minX)
+        {
+            transform.position = new Vector3(maxX - 1, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.z > maxZ)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, minZ + 1);
+        }
+
+        if (transform.position.z < minZ)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, maxZ - 1);
         }
     }
 }
