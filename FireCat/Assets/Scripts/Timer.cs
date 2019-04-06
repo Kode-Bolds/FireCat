@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public SceneManagerScript sceneManager;
+    //SceneManagerScript sceneManager;
     public Text timerText;
     public float timerValue;
 
     // Use this for initialization
     void Start()
     {
-        sceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+        //sceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
         timerText.text = timerValue.ToString();
     }
 
@@ -24,7 +25,7 @@ public class Timer : MonoBehaviour
 
         if (timerValue < 0)
         {
-            sceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
