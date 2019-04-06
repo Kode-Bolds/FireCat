@@ -80,13 +80,18 @@
 				return frac(sin(x) * 43758.5453);
 			}
 
+			float2 UVWobble(float2 p)
+			{
+				
+			}
+
 			fixed4 frag (v2f i) : SV_Target
 			{
 				//i.uv.x += noise(_Time.y + i.uv.x * 10) * 0.005;
 				//i.uv.y += noise(_Time.y + i.uv.y * 10) * 0.005;
 				float time = _Time.x * 1.5;
 
-			float2 p = i.uv;
+				float2 p = i.uv;
 
 				float xs = (rand(time * 6.6) * 0.1 + 0.9);
 				float ys = (rand(time * 6.6) * 0.1 + 0.9);
