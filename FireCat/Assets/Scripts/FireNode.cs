@@ -42,10 +42,7 @@ public class FireNode : MonoBehaviour
             _timeSinceSpread += Time.deltaTime;
             if(_timeSinceSpread > TimeToSpread)
             {
-                foreach(FireNode node in _neighbors)
-                {
-                    node.SetOnFire();
-                }
+                _neighbors[Random.Range(0, _neighbors.Count)].SetOnFire();
                 _timeSinceSpread = 0;
             }
             if(_isBeingExtiguished)
@@ -53,7 +50,7 @@ public class FireNode : MonoBehaviour
                 _timeExtiguishing += Time.deltaTime;
                 if (_timeExtiguishing > TimeToExtiguish)
                 {
-                    print("BOO!");
+                    //print("BOO!");
                     Extinguish();
                 }
             }
@@ -90,7 +87,7 @@ public class FireNode : MonoBehaviour
     public void Extinguish()
     {
         _onFire = false;
-        //_isBeingExtiguished = false;
+        _isBeingExtiguished = false;
         Destroy(_myFireObject);
         _timeExtiguishing = 0;
         _timeSinceSpread = 0;
@@ -107,7 +104,7 @@ public class FireNode : MonoBehaviour
 
     public void OnHit()
     {
-        print("I'm HIT!, Medic!");
+        //print("I'm HIT!, Medic!");
         _isBeingExtiguished = true;
     }
 
