@@ -72,21 +72,25 @@ public class PlayerController : MonoBehaviour
         //Fire water jet if right trigger is pressed down
         if(triggerAxis < 0 && !spraying)
         {
-            RaycastHit hit;
 
             spraying = true;
-            water.Play();
-
-            if(Physics.SphereCast(hose.position, 1, topHalf.forward, out hit, sprayDistance, targetLayer))
-            {
-                
-            }
+            water.Play();            
         }
 
         if(!(triggerAxis < 0))
         {
             water.Stop();
             spraying = false;
+        }
+
+        if(spraying)
+        {
+            RaycastHit hit;
+            if (Physics.SphereCast(hose.position, 1, topHalf.forward, out hit, sprayDistance, targetLayer))
+            {
+                print("hit Node");
+                hit.collider.gameObject.GetComponent<FireNode>().OnHit();
+            }
         }
     }
 }
