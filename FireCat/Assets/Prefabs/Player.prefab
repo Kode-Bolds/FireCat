@@ -396,7 +396,7 @@ MonoBehaviour:
   sprayDistance: -20
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   water: {fileID: 198617257543598164}
 --- !u!198 &198617257543598164
 ParticleSystem:
