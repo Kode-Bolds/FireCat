@@ -46,13 +46,13 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) 
 		{
 			// sample the texture
-			IN.uv_MainTex -= float2(0, _Time.x * 0.5);
-			fixed4 burnCol = tex2D(_BurnTex, IN.uv_MainTex);
+			IN.uv_MainTex -= float2(0, 0);//_Time.x * 0.5);
+			fixed4 burnCol = 1 - tex2D(_BurnTex, IN.uv_MainTex);
 
 			// apply fog
 			UNITY_APPLY_FOG(i.fogCoord, col);
 
-			float burnVal = 1 - (_BurnTime * 0.25 % 1);
+			float burnVal = 1 - (_BurnTime % 1);
 			clip(burnVal - burnCol.r);
 
 			burnCol.r = smoothstep(burnVal - _MinBurn, burnVal, burnCol.r);
