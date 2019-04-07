@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             if (Physics.SphereCast(hose.position, sprayRadius, topHalf.forward, out hit, sprayDistance, targetLayer))
             {
-                print("hit Node");
+                //print("hit Node");
                 hit.collider.gameObject.GetComponent<FireNode>().OnHit();
             }
         }

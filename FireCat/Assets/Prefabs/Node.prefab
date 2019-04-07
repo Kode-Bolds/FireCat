@@ -61,6 +61,8 @@ MonoBehaviour:
   TimeToSpread: 3
   TimeToExtiguish: 0.5
   WaitTimeReignite: 10
+  PointObject: {fileID: 1845727987204522, guid: 10330f3696c31d94f95901a0012e32c0,
+    type: 2}
 --- !u!136 &136104106367893166
 CapsuleCollider:
   m_ObjectHideFlags: 1

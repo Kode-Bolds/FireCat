@@ -17,6 +17,9 @@ public class FireNode : MonoBehaviour
     public float TimeToExtiguish = 2;
     public float WaitTimeReignite = 5;
 
+    [Header("Point Scoring")]
+    public GameObject PointObject;
+
     public bool OnFire
     {
         get { return _onFire; }
@@ -108,7 +111,13 @@ public class FireNode : MonoBehaviour
         _timeSinceSpread = 0;
         _mySteamObject = Instantiate(SteamEffectPrefab, transform);
         _mySteamObject.transform.localScale = new Vector3(fireMaxScale, fireMaxScale, fireMaxScale);
-
+        var p = Instantiate(PointObject, null);
+        p.transform.position = transform.position;
+        var rb = p.GetComponent<Rigidbody>();
+        if(rb != null)
+        {
+            rb.AddForce(new Vector3(Random.Range(0.0f, 5.0f), 5, Random.Range(0.0f, 5.0f)));
+        }
     }
 
     public void OnHit()

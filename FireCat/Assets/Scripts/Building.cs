@@ -87,6 +87,11 @@ public class Building : MonoBehaviour
             health -= Time.deltaTime;
 
             buildingRenderer.material.SetFloat("_BurnTime", 1 - (health / 100f));
+            if(health <= 0)
+            {
+                Destroy(gameObject);//destroy buidling is health is woo low
+                buildingRenderer.material.SetFloat("_BurnTime", 0);
+            }
         }
 
         
