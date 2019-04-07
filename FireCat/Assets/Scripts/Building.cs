@@ -105,6 +105,9 @@ public class Building : MonoBehaviour
 
             health -= Time.deltaTime;
 
+            Transform buildingCube = transform.Find("Cube");
+            buildingCube.localPosition += new Vector3(0, -0.5f, 0) * Time.deltaTime;
+
             buildingRenderer.material.SetFloat("_BurnTime", 1 - (health / 100f));
             if(health <= 0)
             {
