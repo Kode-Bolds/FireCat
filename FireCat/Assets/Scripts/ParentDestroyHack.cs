@@ -16,6 +16,7 @@ public class ParentDestroyHack : MonoBehaviour {
 
     public void KILLYOURSELF()
     {
+        gameObject.SetActive(false);
         Destroy(gameObject);
     }
 }
