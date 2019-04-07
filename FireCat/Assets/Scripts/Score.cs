@@ -6,14 +6,13 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public List<Text> listOfPlayerScoreTexts;
-    List<int> listOfPlayerScores;
-    int numberOfPlayers;
+    public static List<int> listOfPlayerScores = new List<int>();
+    static int numberOfPlayers;
 
     // Use this for initialization
     void Start()
     {
         numberOfPlayers = listOfPlayerScoreTexts.Count;
-        listOfPlayerScores = new List<int>();
 
         // Initialise the text objects on the screen
         for (int i = 0; i < numberOfPlayers; i++)
@@ -36,5 +35,14 @@ public class Score : MonoBehaviour
     public void AddToScore(int player, int amount = 1)
     {
         listOfPlayerScores[player] += amount;
+    }
+
+    public static void ResetScores()
+    {
+        listOfPlayerScores.Clear();
+        for (int i = 0; i < numberOfPlayers; i++)
+        {
+            listOfPlayerScores.Add(0);
+        }
     }
 }

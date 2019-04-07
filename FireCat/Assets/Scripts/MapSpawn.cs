@@ -23,6 +23,7 @@ public class MapSpawn : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Score.ResetScores();
         for (int i = 0; i < X; i++)
         {
             _buildings.Add(new List<Building>());
