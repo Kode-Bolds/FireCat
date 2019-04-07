@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     private Transform bottomHalf;
     private Transform hose;
 
+    private ParticleSystem waterInstance;
+    private ParticleSystem deleteInstance;
     private bool spraying;
 
 	// Use this for initialization
@@ -109,13 +111,17 @@ public class PlayerController : MonoBehaviour
         {
 
             spraying = true;
-            water.Play();
+            waterInstance = Instantiate(water, hose);
+            waterInstance.Play();
         }
 
         //De-activate particloe system if right trigger is released
-        if (!(triggerAxis < 0))
+        if (!(triggerAxis < 0) && waterInstance)
         {
-            water.Stop();
+            waterInstance.Stop();
+            deleteInstance = waterInstance;
+            waterInstance = null;
+            Destroy(deleteInstance, 2);
             spraying = false;
         }
     }
