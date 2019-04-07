@@ -13,9 +13,14 @@ public class Building : MonoBehaviour
     public float TickToSpread;
     public int MinFlamingNodesToSpread;
 
+    [Header("Point Scoring")]
+    public GameObject PointObject;
+    public int numSpawn = 10;
+
     private List<FireNode> _nodes = new List<FireNode>();
     private List<Building> _neighbors = new List<Building>();
     private float _timeSinceSpread;
+    private int _previousFireCount = 0;
 
     Renderer buildingRenderer;
     float health = 100;
@@ -74,6 +79,20 @@ public class Building : MonoBehaviour
                 onFire = true;
             }
         }
+        if(_previousFireCount > 0 && onFireCount == 0)
+        {
+            for (int i = 0; i < numSpawn; i++)
+            {
+                var p = Instantiate(PointObject, null);
+                p.transform.position = transform.position;
+                var rb = p.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.AddForce(new Vector3(Random.Range(-100.0f, 100.0f), 100, Random.Range(-100.0f, 100.0f)));
+                } 
+            }
+        }
+        _previousFireCount = onFireCount;
         if(onFire)
         {
             _timeSinceSpread += Time.deltaTime;
@@ -92,9 +111,7 @@ public class Building : MonoBehaviour
                 Destroy(gameObject);//destroy buidling is health is woo low
                 buildingRenderer.material.SetFloat("_BurnTime", 0);
             }
-        }
-
-        
+        }        
     }
 
     public void AddNeighbor(Building neighbor)

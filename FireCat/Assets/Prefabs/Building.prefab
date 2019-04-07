@@ -142,3 +142,6 @@ MonoBehaviour:
   perimiterWith: 5
   TickToSpread: 10
   MinFlamingNodesToSpread: 5
+  PointObject: {fileID: 1845727987204522, guid: 10330f3696c31d94f95901a0012e32c0,
+    type: 2}
+  numSpawn: 10
