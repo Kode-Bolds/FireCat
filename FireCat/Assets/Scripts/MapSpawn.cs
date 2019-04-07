@@ -13,6 +13,11 @@ public class MapSpawn : MonoBehaviour
     public int Z;
     public float spacing;
 
+    [Header("Players")]
+    public GameObject playerPrefab1;
+    public GameObject playerPrefab2;
+    public GameObject playerPrefab3;
+    public GameObject playerPrefab4;
 
     private List<List<Building>> _buildings = new List<List<Building>>();
     // Use this for initialization
@@ -58,6 +63,8 @@ public class MapSpawn : MonoBehaviour
         int z = Random.Range(0, Z-1);
         _buildings[x][z].AddFire();
         GenerateRoadLayout();
+
+        CreatePlayers();
     }
 
     // Update is called once per frame
@@ -90,5 +97,35 @@ public class MapSpawn : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void CreatePlayers()
+    {
+        List<int> players = PlayerCountScript.players;
+        foreach (int i in players)
+        {
+            if (i == 1)
+            {
+                //spawn1
+                Instantiate(playerPrefab1, new Vector3(spacing / 2, 0, spacing / 2), Quaternion.identity);
+            }
+            if (i == 2)
+            {
+                //spawn2
+                Instantiate(playerPrefab2, new Vector3((X - 1.5f) * spacing, 0, spacing / 2), Quaternion.identity);
+            }
+            if (i == 3)
+            {
+                //spawn3
+                Instantiate(playerPrefab3, new Vector3(spacing / 2, 0, (Z - 1.5f) * spacing), Quaternion.identity);
+            }
+            if (i == 4)
+            {
+                //spawn4
+                Instantiate(playerPrefab4, new Vector3((X - 1.5f) * spacing, 0, (Z - 1.5f) * spacing), Quaternion.identity);
+            }
+        }
+
+        
     }
 }
