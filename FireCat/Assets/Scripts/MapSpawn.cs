@@ -113,17 +113,17 @@ public class MapSpawn : MonoBehaviour
             if (i == 2)
             {
                 //spawn2
-                Instantiate(playerPrefab2, new Vector3((X - 1.5f) * spacing, 0, spacing / 2), Quaternion.identity);
+                Instantiate(playerPrefab2, new Vector3(16, 0, 70), Quaternion.identity);
             }
             if (i == 3)
             {
                 //spawn3
-                Instantiate(playerPrefab3, new Vector3(spacing / 2, 0, (Z - 1.5f) * spacing), Quaternion.identity);
+                Instantiate(playerPrefab3, new Vector3(165, 0, 70), Quaternion.identity);
             }
             if (i == 4)
             {
                 //spawn4
-                Instantiate(playerPrefab4, new Vector3((X - 1.5f) * spacing, 0, (Z - 1.5f) * spacing), Quaternion.identity);
+                Instantiate(playerPrefab4, new Vector3(165, 0, 0), Quaternion.identity);
             }
         }
 
