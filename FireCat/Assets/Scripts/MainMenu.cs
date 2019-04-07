@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour {
     {
         if (Input.GetButtonDown("Start1") || Input.GetButtonDown("Start2") || Input.GetButtonDown("Start3") || Input.GetButtonDown("Start4"))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("SelectionScene");
         }
 
         if(Input.GetButtonDown("Cancel"))

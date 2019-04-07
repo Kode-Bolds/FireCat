@@ -8,7 +8,7 @@ public class SelectionScript : MonoBehaviour
 {
     public Text continueText;
 
-    List<string> players;
+    List<int> players;
     public List<Text> listOfTexts;
 
     List<GameObject> CATS;
@@ -16,7 +16,7 @@ public class SelectionScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        players = new List<string>();
+        players = new List<int>();
         CATS = new List<GameObject>();
 
         for (int i = 1; i < 5; i++)
@@ -37,13 +37,14 @@ public class SelectionScript : MonoBehaviour
 
         if (players.Count > 0 && (Input.GetButtonDown("Start1") || Input.GetButtonDown("Start2") || Input.GetButtonDown("Start3") || Input.GetButtonDown("Start4") || Input.GetKeyDown(KeyCode.KeypadEnter)))
         {
+            PlayerCountScript.players = players;
             SceneManager.LoadScene("SampleScene");
         }
 
         if (Input.GetButtonDown("Select1") || Input.GetKeyDown(KeyCode.A))
         {
             // player 1 join
-            players.Add("Player 1");
+            players.Add(1);
 
             // change joining text on screen
             listOfTexts[0].text = "Player 1 Joined!";
@@ -54,7 +55,7 @@ public class SelectionScript : MonoBehaviour
         if (Input.GetButtonDown("Select2") || Input.GetKeyDown(KeyCode.S))
         {
             // player 2 join
-            players.Add("Player 2");
+            players.Add(2);
 
             // change joining text on screen
             listOfTexts[1].text = "Player 2 Joined!";
@@ -64,7 +65,7 @@ public class SelectionScript : MonoBehaviour
         if (Input.GetButtonDown("Select3") || Input.GetKeyDown(KeyCode.D))
         {
             // player 3 join
-            players.Add("Player 3");
+            players.Add(3);
 
             // change joining text on screen
             listOfTexts[2].text = "Player 3 Joined!";
@@ -74,7 +75,7 @@ public class SelectionScript : MonoBehaviour
         if (Input.GetButtonDown("Select4") || Input.GetKeyDown(KeyCode.F))
         {
             // player 4 join
-            players.Add("Player 4");
+            players.Add(4);
 
             // change joining text on screen
             listOfTexts[3].text = "Player 4 Joined!";
